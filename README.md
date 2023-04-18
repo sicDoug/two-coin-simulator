@@ -11,13 +11,16 @@ You know that at least one of them will land Heads up.
 
 ## Solution.
 
-People's intuition often tricks them into thinking the snswer is 50%.
+People's intuition often tricks them into thinking the answer is 50%.
 The reason for this is the human tendency to simplify.
-Sometime this can lead to *over*simplification.
+Sometimes this can lead to *over*simplification.
 
 >Well, if one of them is heads, the other could only be heads or tails.
+
 This much is true.
+
 >Since it can only be heads or tails, the answer is fifty-fifty.
+
 This, however, is a fallacy.
 
 When two coins are flipped, there are four possible outcomes:
@@ -37,9 +40,8 @@ Now, if we list the possibe outcomes:
 1. Heads-heads.
 2. Heads-tails.
 3. Tails-heads.
-~~4. Tails-tails.~~
+4. ~~Tails-tails.~~
 
 *Tails-tails* is the only non-valid outcome according to the contitions.
 This leave three possible outcomes, of which one is the target: *heads-heads*.
 Thus, the probablility of both coins landing heads up is 1 in 3 (~33%).
-
