@@ -5,6 +5,8 @@ pub enum Coin {
 }
 
 impl Coin {
+
+    // Returns random Coin.
     pub fn flip() -> Coin {
 
         // Generate random bool and return

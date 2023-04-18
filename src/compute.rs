@@ -22,7 +22,7 @@ fn init_thread(iterations: u32) -> mpsc::Receiver<Tracker> {
         while i < iterations {
 
             // Play game.
-            let first = Coin::flip();
+            let first =  Coin::flip();
             let second = Coin::flip();
 
             // Update the Tracker.

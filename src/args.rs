@@ -4,7 +4,7 @@ use clap::Parser;
 #[derive(Parser, Debug)]
 #[command(author, version, about, long_about = None)]
 pub struct Args {
-    /// Number of simualted games.
+    /// Number of simualations to run.
     #[arg(short, long, default_value_t = 1000)]
     pub iterations: u32,
     

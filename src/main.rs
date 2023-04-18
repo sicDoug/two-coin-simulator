@@ -1,11 +1,10 @@
-use clap::Parser;
-
 mod coin;
 mod display;
 mod tracker;
 mod compute;
 mod args;
 
+use clap::Parser;
 use crate::args::Args;
 
 fn main() {

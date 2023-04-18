@@ -9,9 +9,9 @@ pub struct Tracker {
 }
 
 pub struct Results {
-    pub total_heads: u32,
-    pub total_tails: u32,
-    pub total_valid_games: u32,
+    pub total_heads:         u32,
+    pub total_tails:         u32,
+    pub total_valid_games:   u32,
     pub percent_heads_heads: f64,
 }
 
@@ -28,14 +28,10 @@ impl Tracker {
     // Updates a Tracker with the results of a single game.
     pub fn update(&mut self, first_coin: &Coin, second_coin: &Coin) {
         match (first_coin, second_coin) {
-            (Coin::Heads, Coin::Heads) =>
-                self.heads_heads += 1,
-            (Coin::Heads, Coin::Tails) =>
-                self.heads_tails += 1,
-            (Coin::Tails, Coin::Heads) =>
-                self.tails_heads += 1,
-            (Coin::Tails, Coin::Tails) =>
-                self.tails_tails += 1,
+            (Coin::Heads, Coin::Heads) => self.heads_heads += 1,
+            (Coin::Heads, Coin::Tails) => self.heads_tails += 1,
+            (Coin::Tails, Coin::Heads) => self.tails_heads += 1,
+            (Coin::Tails, Coin::Tails) => self.tails_tails += 1,
         }
     }
 
@@ -50,12 +46,15 @@ impl Tracker {
     // Calculate and return Results.
     pub fn get_results(&self) -> Results {
         // Sum up all Coins that landed Heads up.
-        let total_heads: u32 = self.heads_heads * 2 +
+        let total_heads: u32 =
+            self.heads_heads * 2 +
             self.heads_tails +
             self.tails_heads;
 
         // Sum up all Coins that landed Tails up
-        let total_tails = self.heads_tails + self.tails_heads;
+        let total_tails =
+            self.heads_tails +
+            self.tails_heads;
 
         // Sum up all valid games.
         // All games are valid except for the Tails-Tails permutation.
