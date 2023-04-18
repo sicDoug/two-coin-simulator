@@ -8,6 +8,13 @@ pub struct Tracker {
     pub tails_tails: u32,
 }
 
+pub struct Results {
+    pub total_heads: u32,
+    pub total_tails: u32,
+    pub total_valid_games: u32,
+    pub percent_heads_heads: f32,
+}
+
 impl Tracker {
     pub fn new() -> Self {
         Self {
@@ -39,5 +46,36 @@ impl Tracker {
         self.tails_heads += child.tails_heads;
         self.tails_tails += child.tails_tails;
     }
-}
 
+    // Calculate and return Results.
+    pub fn get_results(&self) -> Results {
+        // Sum up all Coins that landed Heads up.
+        let total_heads = self.heads_heads * 2 +
+            self.heads_tails +
+            self.tails_heads;
+
+        // Sum up all Coins that landed Tails up
+        let total_tails = self.heads_tails + self.tails_heads;
+
+        // Sum up all valid games.
+        // All games are valid except for the Tails-Tails permutation.
+        let total_valid_games: u32 =
+            self.heads_heads +
+            self.heads_tails +
+            self.tails_heads;
+
+        // Get percentige of Heads-Heads of all valid games.
+        let percent_heads_heads =
+            self.heads_heads as f32 /
+            total_valid_games as f32 *
+            100.0;
+
+        // Return new Results.
+        Results {
+            total_heads,
+            total_tails,
+            total_valid_games,
+            percent_heads_heads,
+        }
+    }
+}
