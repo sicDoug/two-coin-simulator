@@ -12,7 +12,7 @@ pub struct Results {
     pub total_heads: u32,
     pub total_tails: u32,
     pub total_valid_games: u32,
-    pub percent_heads_heads: f32,
+    pub percent_heads_heads: f64,
 }
 
 impl Tracker {
@@ -50,7 +50,7 @@ impl Tracker {
     // Calculate and return Results.
     pub fn get_results(&self) -> Results {
         // Sum up all Coins that landed Heads up.
-        let total_heads = self.heads_heads * 2 +
+        let total_heads: u32 = self.heads_heads * 2 +
             self.heads_tails +
             self.tails_heads;
 
@@ -65,9 +65,9 @@ impl Tracker {
             self.tails_heads;
 
         // Get percentige of Heads-Heads of all valid games.
-        let percent_heads_heads =
-            self.heads_heads as f32 /
-            total_valid_games as f32 *
+        let percent_heads_heads: f64 =
+            self.heads_heads as f64 /
+            total_valid_games as f64 *
             100.0;
 
         // Return new Results.
